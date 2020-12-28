@@ -5,7 +5,6 @@ from PIL import ImageTk, Image
 from functools import partial
 import numpy as np
 
-
 # initializing the main app
 app = Tk()
 app.title('Image Calculator')
@@ -48,7 +47,6 @@ def add(panel):
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
     print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
-    img.save('result.jpg')
 
     # converting to Photoimage
     img = ImageTk.PhotoImage(img)
@@ -66,7 +64,6 @@ def subtract(panel):
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
     print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
-    img.save('result.jpg')
 
     # converting to Photoimage
     img = ImageTk.PhotoImage(img)
@@ -84,7 +81,6 @@ def multiply(panel):
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
     print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
-    img.save('result.jpg')
 
     # converting to Photoimage
     img = ImageTk.PhotoImage(img)
@@ -113,7 +109,6 @@ def divide(panel):
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
     print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
-    img.save('result.jpg')
 
     # converting to Photoimage
     img = ImageTk.PhotoImage(img)
@@ -141,6 +136,7 @@ panel1 = Label(input_frame)
 panel1.grid(row=1, column=0, columnspan=5, pady=10)
 
 # default white image
+
 img = Image.open('./images/white.jpg')
 img = img.resize((200, 200), Image.ANTIALIAS)
 img = ImageTk.PhotoImage(img)
