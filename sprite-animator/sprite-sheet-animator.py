@@ -17,11 +17,11 @@ def tokenize_image():
     for x in range(3):
         for y in range(5):
             frame = sprite_sheet[frame_height*x:frame_height*(x+1),frame_width*y:frame_width*(y+1)]
-            cv2.imwrite('frames/'+'Frame'+str((x+1)*(y+1))+'.jpg',frame)
-            y+=1
-        x+=1
+            cv2.imwrite('frames/'+'Frame'+str((5*x)+(y+1))+'.jpg',frame)
+            print((5*x)+(y+1))
         
 
+tokenize_image()
 
 # loop variables(i for rows, j for columns)
 i=0
@@ -29,7 +29,7 @@ j=0
 
 while True:
     # Setting the frame rate to 15fps
-    time.sleep(1/15)
+    time.sleep(1/2)
 
     # Generating and displaying the individual frames 
     frame = sprite_sheet[frame_height*i:frame_height*(i+1),frame_width*j:frame_width*(j+1)]    
