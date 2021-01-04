@@ -29,7 +29,7 @@ j=0
 
 while True:
     # Setting the frame rate to 15fps
-    time.sleep(1/2)
+    time.sleep(1/15)
 
     # Generating and displaying the individual frames 
     frame = sprite_sheet[frame_height*i:frame_height*(i+1),frame_width*j:frame_width*(j+1)]    
