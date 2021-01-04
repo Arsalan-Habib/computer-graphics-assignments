@@ -43,9 +43,7 @@ def add(panel):
 
     res_arr = [x+y for x, y in zip(image1, image2)]
     res_arr = [255 if val > 255 else val for val in res_arr]
-    print(res_arr[:100])
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
-    print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
 
     # converting to Photoimage
@@ -60,9 +58,7 @@ def subtract(panel):
 
     res_arr = [x-y for x, y in zip(image1, image2)]
     res_arr = [0 if val < 0 else val for val in res_arr]
-    print(res_arr[:100])
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
-    print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
 
     # converting to Photoimage
@@ -77,9 +73,7 @@ def multiply(panel):
 
     res_arr = [x*y for x, y in zip(image1, image2)]
     res_arr = [255 if val > 255 else val for val in res_arr]
-    print(res_arr[:100])
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
-    print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
 
     # converting to Photoimage
@@ -92,8 +86,7 @@ def multiply(panel):
 
 def divide(panel):
 
-    # res_arr = [x/y for x, y in zip(image1, image2)]
-    # res_arr = [0 if val < 250 else val for val in res_arr]
+    # checking for zeros, then dividing pixel values.
     res_arr = []
     for x, y in zip(image1, image2):
         if(x == 0 and y == 0):
@@ -105,9 +98,7 @@ def divide(panel):
         else:
             res_arr.append(x/y)
 
-    print(res_arr[:100])
     res_arr = np.array(res_arr, dtype=np.uint8).reshape(200, 200, 3)
-    print(res_arr[:100])
     img = Image.fromarray(res_arr, 'RGB')
 
     # converting to Photoimage
@@ -145,7 +136,7 @@ panel1.image = img
 
 
 # Add photo button 1
-add_photo_1 = ttk.Button(input_frame, text='Add Photo',
+add_photo_1 = ttk.Button(input_frame, text='Select Image',
                          padding='5 2', command=partial(open_image, panel1))
 add_photo_1.grid(row=0, column=2, sticky=(N))
 
@@ -157,7 +148,7 @@ panel2.configure(image=img)
 panel2.image = img
 
 # Add photo button 2
-add_photo_2 = ttk.Button(input_frame2, text='Add Photo',
+add_photo_2 = ttk.Button(input_frame2, text='Select Image',
                          padding='5 2', command=partial(open_image, panel2))
 add_photo_2.grid(row=0, column=2, sticky=(N))
 
@@ -177,6 +168,12 @@ res_panel.image = img
 res_label = ttk.Label(res_frame, text='Result')
 res_label.config(font=("Helvetica", 16))
 res_label.grid(row=0, column=2, sticky=(N))
+
+
+# Name label
+name_label = ttk.Label(mainframe, text='Created By: Syed Arsalan Habib \nSeat No: B17101108')
+name_label.config(font=("Helvetica", 16))
+name_label.grid(row=3, rowspan=2,  column=3, columnspan=3, sticky=(E))
 
 
 # frame for the buttons
