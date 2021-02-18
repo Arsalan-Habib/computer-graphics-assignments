@@ -20,14 +20,14 @@ def n_gon(number_of_sides, radius):
         vertices[0].append(x_vertex)
         vertices[1].append(y_vertex)
     
-    # turtle.penup()
-    # turtle.goto(vertices[0][0],vertices[1][0])
-    # turtle.pendown()
-    for x in range(number_of_sides):
-        turtle.goto(vertices[0][x],vertices[1][x])
+    turtle.penup()
+    turtle.goto(vertices[0][0],vertices[1][0])        # Optional, goto first vertex without drawing line. 
+    turtle.pendown()
 
-    turtle.goto(vertices[0][0],vertices[1][0])
-
+    for x in range(number_of_sides+1):
+        turtle.goto(vertices[0][x%number_of_sides],vertices[1][x%number_of_sides])  
 
 
-n_gon(6,150)
+
+
+n_gon(6,100)
